@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../../contextApi/useAuth";
 import { useLoading } from "../../contextApi/useLoading";
@@ -120,6 +120,15 @@ const LoginForm = () => {
             Login
           </button>
         </form>
+           <p className="text-sm text-gray-600 text-center mt-4">
+        Don't have an account?{" "}
+        <Link
+          to="/signup"
+          className="text-blue-600 font-medium hover:underline"
+        >
+          Sign up
+        </Link>
+      </p>
       </div>
     </div>
   );

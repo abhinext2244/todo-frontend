@@ -8,9 +8,12 @@ import {
   updateTodoStatusApi,
 } from "../../services/todoApi";
 import { useEffect, useCallback } from "react";
+import LoadingPage from "../../components/LoadingPage";
 import { toast } from "react-hot-toast";
+import {useLoading} from "../useLoading";
 const TodoContext = createContext(null);
 export const TodoProvider = ({ children }) => {
+  const { loading, setLoading } = useLoading();
   const [todo, setTodo] = useState([]);
   const [oneTodo, setOneTodo] = useState(null);
   const [search, setSearch] = useState("");
@@ -22,6 +25,10 @@ export const TodoProvider = ({ children }) => {
 
   const addTodo = async (title, description, priority, dueDate, categoryId) => {
     try {
+      setLoading(true);
+      if(loading){
+        return <LoadingPage/>
+      }
       const res = await createTodo(
         title,
         description,
@@ -44,6 +51,8 @@ export const TodoProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
       toast.error(error?.response?.data?.message || "Failed to create todo");
+    }finally{
+      setLoading(false);
     }
   };
   const getTodos = useCallback(async () => {
@@ -147,7 +156,9 @@ export const TodoProvider = ({ children }) => {
         setPriority,
         category,
         setCategory,
-        toggleTodoStatus
+        toggleTodoStatus,
+        loading,
+        setLoading
       }}
     >
       {children}

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,Link } from "react-router-dom";
 import toast from "react-hot-toast";
 import { useAuth } from "../../contextApi/useAuth";
 import { useLoading } from "../../contextApi/useLoading";
@@ -145,8 +145,18 @@ const SignupForm = () => {
             Signup
           </button>
         </form>
+          <p className="text-sm text-gray-600 text-center mt-4">
+  Already have an account?{" "}
+  <Link
+    to="/login"
+    className="text-blue-600 font-medium hover:underline"
+  >
+    Login
+  </Link>
+</p>
       </div>
     </div>
+    
   );
 };
 

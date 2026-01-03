@@ -41,7 +41,7 @@ const TodoForm = () => {
         {/* Header */}
         <div className="px-8 py-6 border-b">
           <h2 className="text-3xl font-bold text-gray-800 flex items-center gap-2">
-            📝 Create Todo
+           Create Todo
           </h2>
           <p className="text-sm text-gray-500 mt-1">
             Plan your tasks with clarity and priority

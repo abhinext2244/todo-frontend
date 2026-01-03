@@ -2,13 +2,18 @@
 
 /* ================= BEFORE LOGIN ================= */
 export const AUTH_NAVBAR = [
-  {
+    {
     id: 1,
+    label: "Home",
+    path: "/",
+  },
+  {
+    id: 2,
     label: "Login",
     path: "/login",
   },
   {
-    id: 2,
+    id: 3,
     label: "Signup",
     path: "/signup",
   },
